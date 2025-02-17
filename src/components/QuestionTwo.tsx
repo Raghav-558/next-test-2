@@ -82,7 +82,7 @@ const LoginForm: React.FC = () => {
         <form
           onSubmit={handleClick}
           noValidate
-          className="flex flex-col gap-2 max-w-[320px] mx-auto"
+          className="flex flex-col gap-2 max-w-[380px] mx-auto"
         >
           <label htmlFor="firstName" className="block text-white">
             First Name
@@ -137,9 +137,7 @@ const LoginForm: React.FC = () => {
               id="password"
               className="outline-none  text-black text-lg"
             />
-            {error.password && (
-              <p className="text-red-600 pt-2">{error.password}</p>
-            )}
+
             <button
               className="bg-white"
               type="button"
@@ -164,6 +162,9 @@ const LoginForm: React.FC = () => {
               )}
             </button>
           </div>
+          {error.password && (
+            <p className="text-red-600 pt-2">{error.password}</p>
+          )}
           <label htmlFor="confirmPassword" className="block text-white">
             Confirm Password
           </label>
@@ -171,7 +172,7 @@ const LoginForm: React.FC = () => {
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Conform Password"
+            placeholder="Confirm Password"
             id="confirmPassword"
             className="outline-none py-3 px-3 rounded-md mt-1 text-black text-lg"
           />

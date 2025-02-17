@@ -1,80 +1,98 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import { useEffect } from "react";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SLIDER_LIST } from "@/utils/helper";
+import { SLIDER_ICONS_LIST, SLIDER_LIST } from "@/utils/helper";
+import Image from "next/image";
+
 gsap.registerPlugin(ScrollTrigger);
 
-
-const Slider = () => {
+const AiSlider = () => {
   useEffect(() => {
-    const tl = gsap.timeline({
+    gsap.to(".slider-container", {
+      xPercent: -100 * (SLIDER_LIST.length - 1),
+      ease: "none",
       scrollTrigger: {
-        trigger: ".slider-section",
-        start: "top top",
-        end: "200%",
-        scrub: 1,
+        trigger: ".slider-container",
         pin: true,
+        scrub: 0.5,
+        end: "+=3000",
+        id: "slider",
       },
     });
-    tl.fromTo(
-      ".slider-item",
-      {
-        x: "0%",
-      },
-      {
-        x: "-75%",
-      },
-      "+=0.5"
-    );
   }, []);
 
   return (
-    <div className="light-black slider-section min-h-[1014px] mx-auto flex justify-center items-center">
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="max-w-[830px] mx-auto font-medium text-5xl leading-[57.6px] text-white text-center">
+    <div className="pt-[156px] pb-[113px] max-md:py-[60px] overflow-hidden">
+      <div className="max-w-[1172px] px-4 mx-auto">
+        <Image
+          src="/assets/images/webp/blue-layer.webp"
+          alt="shadow"
+          width={199}
+          height={199}
+          className="absolute top-10 right-0"
+        />
+        <h2 className="max-w-[830px] mx-auto font-medium text-5xl leading-[57.6px] text-white text-center max-md:text-3xl max-md:leading-[36px]">
           Transforming Secure, Modern{" "}
           <span className="bg-gradient-to-r from-lightPurple to-lightSky bg-clip-text text-transparent">
             Development
           </span>{" "}
           with AdaptsAI
         </h2>
-        <div className="overflow-hidden pt-[60px] max-w-[1440px]">
-          <div className="flex w-max slider-item left-0 ">
-            {SLIDER_LIST.map((item, i) => (
-              <div key={i} className="min-w-[1440px]">
-                <div className="flex gap-[65px] items-center container max-w-[1140px] mx-auto">
-                  <div className="flex flex-col max-w-[461px]">
-                    <h3 className="font-roboto font-black text-[256px] leading-[100%] text-white">
-                      {item.number}
-                    </h3>
-                    <h4 className="font-bold leading-[39.01px] text-[32px] text-white max-lg:leading-[30px] max-lg:text-2xl max-sm:leading-[26px] max-sm:text-xl">
-                      {item.title}
-                    </h4>
-                    <p className="font-poppins max-sm:text-sm leading-[25px] max-sm:leading-5 text-white mt-4">
-                      {item.description}
-                    </p>
-                    <p className="font-poppins max-sm:text-sm leading-[25px] max-sm:leading-5 text-white">
-                      {item.secondDescription}
-                    </p>
-                  </div>
-                  <Image
-                    src={item.image}
-                    alt="slider"
-                    width={614}
-                    height={417}
-                    className="shadow-[0px_4px_58.7px_0px_#00DDFF26] rounded-xl h-[417px] max-lg:max-w-[614px] max-lg:max-h-[417px]"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex items-center justify-between pt-[60px] max-md:pt-[30px]">
+          {SLIDER_ICONS_LIST.map((obj, i) => (
+            <div
+              key={i}
+              className="size-[58px] border border-lightSky border-opacity-[24%] rounded-md flex items-center justify-center max-md:size-[40px]"
+            >
+              {obj}
+            </div>
+          ))}
         </div>
-        {/* Slider End  */}
+      </div>
+      <div className="slider-container flex flex-nowrap w-full lg:pt-[60px] !px-4">
+        {SLIDER_LIST.map((obj, i) => (
+          <div
+            key={i}
+            className="slider-item flex-shrink-0 flex justify-center gap-[65px] w-[100vw] max-md:flex-col max-md:gap-[20px]"
+          >
+            <div className="max-w-[461px] pt-[26px] max-md:max-w-full">
+              <Image
+                src={obj.number}
+                alt="number"
+                width={297}
+                height={182}
+                className="mb-6 max-lg:max-w-[100px] max-md:max-w-[50px] pointer-events-none"
+              />
+              <p className="text-[32px] font-bold leading-[39px] pb-4 text-white max-md:text-[24px] max-md:leading-[30px]">
+                {obj.title}{" "}
+                <span className="bg-gradient-to-l to-lightSky from-lightPurple bg-clip-text text-transparent text-[32px] font-bold leading-[39px] max-md:text-[24px] max-md:leading-[30px]">
+                  {obj.gradientText}
+                </span>
+              </p>
+              <p className="font-poppins text-white leading-[25px] opacity-90 max-md:text-[18px] max-md:leading-[22px]">
+                {obj.description}
+              </p>
+              {obj.secondDescription && (
+                <p className="font-poppins text-white leading-[25px] opacity-90 max-md:text-[18px] max-md:leading-[22px]">
+                  {obj.secondDescription}
+                </p>
+              )}
+            </div>
+            <div>
+              <Image
+                src={obj.image}
+                alt={obj.imageAlt}
+                height={427}
+                width={614}
+                className="shadow-[0px_4px_58.7px_0px_#00DDFF26] rounded-xl h-[417px] max-lg:max-w-[614px] max-lg:max-h-[417px] max-md:flex max-md:justify-center"
+              />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Slider;
+export default AiSlider;

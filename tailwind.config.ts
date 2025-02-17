@@ -9,15 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        "lightPurple": "#df2bff",
-        "lightSky": "#00b7ff",
-        "skyBlue": "00ddff",
-        "lightGray": "#343434",
-        "lightBlue": "#407BFF3D",
+        lightPurple: "#df2bff",
+        lightSky: "#00b7ff",
+        skyBlue: "00ddff",
+        lightGray: "#343434",
+        lightBlue: "#407BFF3D",
       },
       fontFamily: {
         poppins: ["Poppins", "serif"],
         roboto: ["Roboto", "serif"],
+      },
+      screens: {
+        lg: "1025px",
+        md: "770px",
       },
     },
   },

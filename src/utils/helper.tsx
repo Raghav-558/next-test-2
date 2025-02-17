@@ -9,7 +9,7 @@ export const SLIDER_ICONS_LIST = [
 
 export const SLIDER_LIST = [
   {
-    number: "01",
+    number: "/assets/images/webp/number-one.webp",
     title: "AI Chatbots don’t create enterprse-grade",
     gradientText: "apps",
     description:
@@ -18,7 +18,7 @@ export const SLIDER_LIST = [
     imageAlt: "chat-box-image",
   },
   {
-    number: "02",
+    number: "/assets/images/webp/number-two.webp",
     title: "Modernization Doesn’t Have to Mean Failure",
     description:
       "Traditional app modernization often falls short because teams are forced to navigate poorly documented legacy code — an outdated maze that slows progress and drives up costs. It’s time to change the narrative.",
@@ -28,7 +28,7 @@ export const SLIDER_LIST = [
     imageAlt: "code-image",
   },
   {
-    number: "03",
+    number: "/assets/images/webp/number-three.webp",
     title: "Protected from Legal Risks and IP liability ",
     description:
       "AdaptsAI ensures IP protection by generating custom, original code with no direct replication of copyrighted material. Our LLM engine delivers unique, optimized solutions while maintaining high quality. Users can trust their codebases are free from IP risks, enabling secure, responsible AI innovation.",
@@ -36,7 +36,7 @@ export const SLIDER_LIST = [
     imageAlt: "tools-image",
   },
   {
-    number: "04",
+    number: "/assets/images/webp/number-four.webp",
     title: "AI generated apps need maintenance too!",
     description:
       "Business applications demand ongoing maintenance to address new vulnerabilities, ensure reliability, and deliver updates or bug fixes.",
