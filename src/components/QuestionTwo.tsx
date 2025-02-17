@@ -118,7 +118,7 @@ const LoginForm: React.FC = () => {
           <input
             type="number"
             value={formData.phone}
-            placeholder="Phone number"
+            placeholder="Phone Number"
             onChange={handleChange}
             id="phone"
             className="outline-none py-3 px-3 rounded-md mt-1 text-black text-lg"
@@ -128,31 +128,42 @@ const LoginForm: React.FC = () => {
           <label htmlFor="password" className="block text-white">
             Password
           </label>
-          <div className="w-full relative">
+          <div className="flex justify-between items-center py-3 px-3 bg-white rounded-md mt-1">
             <input
               type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
               value={formData.password}
               onChange={handleChange}
-              className="outline-none py-3 px-3 pr-10 rounded-md mt-1 text-black text-lg w-full"
+              placeholder="Password"
+              id="password"
+              className="outline-none  text-black text-lg"
             />
-            <div
+            {error.password && (
+              <p className="text-red-600 pt-2">{error.password}</p>
+            )}
+            <button
+              className="bg-white"
+              type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className={`cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 ${
-                !showPassword &&
-                "after:absolute after:w-[20px] after:h-0.5 after:right-[3px] after:bg-black/80 after:rounded-lg after:-rotate-45 after:origin-right after:top-[2px]"
-              }`}
             >
-              <Image
-                src={"/assets/images/webp/show-password.webp"}
-                alt="show-password-image"
-                width={20}
-                height={20}
-              />
-            </div>
+              {showPassword ? (
+                <Image
+                  className="pointer-events-none"
+                  src={"/assets/images/webp/show.webp"}
+                  alt="show-image"
+                  width={20}
+                  height={20}
+                />
+              ) : (
+                <Image
+                  className="pointer-events-none"
+                  src={"/assets/images/webp/hide.webp"}
+                  alt="hide-image"
+                  width={20}
+                  height={20}
+                />
+              )}
+            </button>
           </div>
-
           <label htmlFor="confirmPassword" className="block text-white">
             Confirm Password
           </label>
@@ -160,7 +171,7 @@ const LoginForm: React.FC = () => {
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
-            placeholder="Confirm Password"
+            placeholder="Conform Password"
             id="confirmPassword"
             className="outline-none py-3 px-3 rounded-md mt-1 text-black text-lg"
           />
