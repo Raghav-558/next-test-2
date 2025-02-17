@@ -9,8 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "lightPurple": "#df2bff",
+        "lightSky": "#00b7ff",
+        "skyBlue": "00ddff",
+        "lightGray": "#343434",
+        "lightBlue": "#407BFF3D",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "serif"],
+        roboto: ["Roboto", "serif"],
       },
     },
   },
